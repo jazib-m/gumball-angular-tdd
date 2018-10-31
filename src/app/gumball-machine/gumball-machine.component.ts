@@ -16,6 +16,11 @@ public numberOfBalls: number;
     this.initialize();
   }
 
+  public initialize = function() {
+    this.message = this.gumballService.NQ_START;
+    this.numberOfBalls = 100;
+  };
+
   public insertQuarter = function () {
     console.log('quater inserted');
   };
@@ -30,10 +35,6 @@ public numberOfBalls: number;
 
   public takeGumball = function() {
     console.log('gumball taken');
-  };
-
-  public initialize = function() {
-    this.message = this.gumballService.NQ_START;
   };
 
   public refill = function() {
