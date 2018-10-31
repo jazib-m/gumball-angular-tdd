@@ -8,6 +8,7 @@ import { GumballServiceService } from '../services/gumball-service/gumball-servi
 })
 export class GumballMachineComponent implements OnInit {
 public message: String;
+public numberOfBalls: number;
 
   constructor( private gumballService: GumballServiceService) { }
 
@@ -16,15 +17,19 @@ public message: String;
   }
 
   public insertQuarter = function () {
+    console.log('quater inserted');
   };
 
   public ejectQuarter = function () {
+    console.log('quater ejected');
   };
 
   public turnCrank = function() {
+    console.log('crank turned');
   };
 
   public takeGumball = function() {
+    console.log('gumball taken');
   };
 
   public initialize = function() {
@@ -32,6 +37,7 @@ public message: String;
   };
 
   public refill = function() {
+    console.log('machine refilled');
   };
 
 }

@@ -1,3 +1,53 @@
-<p>
-  gumball-machine works!
-</p>
+<div class=" row text-center">
+  <div class="cover-container col-sm-6">
+    <div  class="inner cover" style="margin-top: 4em">
+      <h1 class="cover-heading">Get a gumball</h1>
+     <img height="420px" src="../assets/img/gb.jpg">
+    </div>
+  </div>
+  <div class=" col-sm-6" >
+      <div  class="inner cover" style="margin-top: 7em">
+          <div class="col-sm-12 message-pane">
+              <h1 id="message"> {{message}}</h1>
+          </div>
+          <div class="action-pane">
+
+                  <p class="lead">
+                      <button id="insertCoin" (click)="insertQuarter()" class="btn btn-sm btn-secondary">Inset Coin</button>
+                      <span class="pull-left">
+                              Inset coin to get a gumball.
+                          </span>
+                  </p>
+                  <p class="lead">
+                      <button id="crank" (click)="turnCrank()" class="btn btn-sm btn-secondary">Turn Crank</button>
+                      <span class="pull-left">
+                              Turn crank to get the gumball from the machine.
+                          </span>
+                  </p>
+                  <p class="lead">
+                          <button id="eject" (click)="takeGumball()" class="btn btn-sm btn-secondary">Take gumball</button>
+                          <span class="pull-left">
+                                  Take the gumball out of the machine
+                              </span>
+                      </p>
+                  <p class="lead">
+                      <button id="reset" (click)="refill()" class="btn btn-sm btn-secondary">Refill</button>
+                      <span class="pull-left">
+                              Press to fill up the gumball machine.
+                          </span>
+                  </p>
+                  <p class="lead">
+                      <button id="eject" (click)="ejectQuarter()" class="btn btn-sm btn-secondary">Eject</button>
+                      <span class="pull-left">
+                              Eject coin
+                      </span>
+                  </p>
+
+          </div>
+          <div class="col-sm-12 message-pane">
+              <h1 id="message">Number of gumballs : {{numberOfBalls}}</h1>
+          </div>
+        </div>
+
+    </div>
+</div>
