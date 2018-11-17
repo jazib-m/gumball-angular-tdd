@@ -23,7 +23,4 @@ describe('GumballMachineComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should set message to : Quarter for a Gumball', () => {
-    expect(component.message).toEqual('Quarter for a Gumball');
-  });
 });
