@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { GumballServiceService } from '../services/gumball-service/gumball-service.service';
 import { GumballHttpServiceService } from '../services/gumball-http-service/gumball-http-service.service';
 
 @Component({
@@ -12,7 +11,6 @@ export class GumballMachineComponent implements OnInit {
   public numberOfBalls: number;
 
   constructor(
-    private gumballService: GumballServiceService,
     private gumballHttpService: GumballHttpServiceService
   ) {}
 
@@ -21,23 +19,33 @@ export class GumballMachineComponent implements OnInit {
   }
 
   public insertQuarter = function() {
-    console.log('quater inserted');
+    this.gumballHttpService.insertQuarter().then(res => {
+      this.message = res.message;
+    });
   };
 
   public ejectQuarter = function() {
-    console.log('quater ejected');
+    this.gumballHttpService.eject().then(res => {
+      this.message = res.message;
+    });
   };
 
   public turnCrank = function() {
-    console.log('crank turned');
+    this.gumballHttpService.turnCrank().then(res => {
+      this.message = res.message;
+    });
   };
 
   public takeGumball = function() {
-    console.log('gumball taken');
+    this.gumballHttpService.takeGumball().then(res => {
+      this.message = res.message;
+    });
   };
 
   public refill = function() {
-    console.log('machine refilled');
+    this.gumballHttpService.refill().then(res => {
+      this.message = res.message;
+    });
   };
 
   private getCount(): void {
@@ -46,8 +54,14 @@ export class GumballMachineComponent implements OnInit {
     });
   }
 
+  private getMessage(): void {
+    this.gumballHttpService.getmessage().then(res => {
+      this.message = res.message;
+    });
+  }
+
   private initialize = function() {
-    this.message = this.gumballService.NQ_START;
+    this.getMessage();
     this.getCount();
   };
 }
