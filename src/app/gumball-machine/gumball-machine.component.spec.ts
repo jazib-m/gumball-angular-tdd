@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { GumballMachineComponent } from './gumball-machine.component';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('GumballMachineComponent', () => {
   let component: GumballMachineComponent;
@@ -8,7 +9,10 @@ describe('GumballMachineComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GumballMachineComponent ]
+      declarations: [ GumballMachineComponent ],
+      imports: [
+        HttpClientModule,
+    ]
     })
     .compileComponents();
   }));

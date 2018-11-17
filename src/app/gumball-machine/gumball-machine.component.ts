@@ -27,6 +27,8 @@ export class GumballMachineComponent implements OnInit {
   public ejectQuarter = function() {
     this.gumballHttpService.eject().then(res => {
       this.message = res.message;
+    }).catch(e => {
+      console.log(e);
     });
   };
 
@@ -51,12 +53,16 @@ export class GumballMachineComponent implements OnInit {
   private getCount(): void {
     this.gumballHttpService.getCount().then(res => {
       this.numberOfBalls = res.numberOfBalls;
+    }).catch(e => {
+      console.log(e);
     });
   }
 
   private getMessage(): void {
     this.gumballHttpService.getmessage().then(res => {
       this.message = res.message;
+    }).catch(e => {
+      console.log(e);
     });
   }
 
