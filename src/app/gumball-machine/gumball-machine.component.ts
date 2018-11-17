@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GumballServiceService } from '../services/gumball-service/gumball-service.service';
+import { GumballHttpServiceService } from '../services/gumball-http-service/gumball-http-service.service';
 
 @Component({
   selector: 'app-gumball-machine',
@@ -7,25 +8,23 @@ import { GumballServiceService } from '../services/gumball-service/gumball-servi
   styleUrls: ['./gumball-machine.component.css']
 })
 export class GumballMachineComponent implements OnInit {
-public message: String;
-public numberOfBalls: number;
+  public message: String;
+  public numberOfBalls: number;
 
-  constructor( private gumballService: GumballServiceService) { }
+  constructor(
+    private gumballService: GumballServiceService,
+    private gumballHttpService: GumballHttpServiceService
+  ) {}
 
   ngOnInit() {
     this.initialize();
   }
 
-  public initialize = function() {
-    this.message = this.gumballService.NQ_START;
-    this.numberOfBalls = 100;
-  };
-
-  public insertQuarter = function () {
+  public insertQuarter = function() {
     console.log('quater inserted');
   };
 
-  public ejectQuarter = function () {
+  public ejectQuarter = function() {
     console.log('quater ejected');
   };
 
@@ -41,4 +40,14 @@ public numberOfBalls: number;
     console.log('machine refilled');
   };
 
+  private getCount(): void {
+    this.gumballHttpService.getCount().then(res => {
+      this.numberOfBalls = res.numberOfBalls;
+    });
+  }
+
+  private initialize = function() {
+    this.message = this.gumballService.NQ_START;
+    this.getCount();
+  };
 }
